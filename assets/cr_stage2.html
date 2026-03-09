@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte Rendu Stage 2 - Nolan Jean</title>
+    <link rel="stylesheet" href="cr_style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Page de garde -->
+        <div class="cover">
+            <h1>COMPTE RENDU DE STAGE</h1>
+            <div class="subtitle">BTS SIO SLAM - 2ème année</div>
+
+            <div class="info"><strong>Stagiaire :</strong> Nolan JEAN</div>
+            <div class="info"><strong>Formation :</strong> BTS Services Informatiques aux Organisations<br>Option SLAM (Solutions Logicielles et Applications Métiers)</div>
+            <div class="info"><strong>Établissement :</strong> Lycée Léonard de Vinci</div>
+            <div class="info"><strong>Entreprise d'accueil :</strong> Olevia</div>
+            <div class="info"><strong>Période :</strong> Du 6 janvier 2026 au 13 février 2026 (6 semaines)</div>
+        </div>
+
+        <!-- Introduction -->
+        <h2>1. Introduction</h2>
+        <p>
+            Dans le cadre de ma deuxième année de BTS SIO option SLAM, j'ai effectué un second stage de 6 semaines
+            au sein d'Olevia. Ce stage s'inscrit dans la continuité du premier, avec des missions plus complexes
+            et orientées vers des technologies plus avancées.
+        </p>
+        <p>
+            Les objectifs principaux de ce stage étaient de développer des outils d'automatisation marketing,
+            d'approfondir l'optimisation SEO, d'améliorer le site web existant, et de monter en compétences
+            sur des technologies comme l'intelligence artificielle, Java et Spring Boot.
+        </p>
+
+        <!-- Présentation de l'entreprise -->
+        <h2>2. Contexte de l'entreprise Olevia</h2>
+
+        <h3>2.1 État de l'entreprise en janvier 2026</h3>
+        <p>
+            Un an après son lancement, Olevia a connu une croissance significative. Le site web développé
+            lors du premier stage a permis d'établir une présence en ligne solide, et les ventes se sont développées
+            progressivement. L'entreprise cherche maintenant à automatiser certains processus et à développer
+            sa présence sur les réseaux sociaux, notamment Instagram.
+        </p>
+
+        <h3>2.2 Nouveaux enjeux</h3>
+        <ul>
+            <li>Développer la notoriété de la marque via les réseaux sociaux</li>
+            <li>Automatiser les opérations marketing (jeux-concours, interactions)</li>
+            <li>Améliorer le référencement pour gagner en visibilité</li>
+            <li>Moderniser la stack technique pour faciliter les évolutions futures</li>
+        </ul>
+
+        <!-- Missions réalisées -->
+        <h2>3. Missions réalisées</h2>
+
+        <h3>3.1 Développement d'une application d'analyse de concours Instagram</h3>
+        <p>
+            La mission principale de ce stage consistait à développer une application permettant d'analyser
+            les participants aux jeux-concours Instagram d'Olevia et de sélectionner automatiquement un gagnant
+            parmi les personnes respectant toutes les règles.
+        </p>
+
+        <h4>Contexte et objectifs :</h4>
+        <p>
+            Les jeux-concours Instagram (ex: "Likez, commentez et tagguez 3 amis pour gagner") sont un excellent
+            moyen d'augmenter l'engagement et la visibilité d'une marque. Cependant, vérifier manuellement que
+            chaque participant a bien respecté toutes les règles (like, follow, mentions) et sélectionner un
+            gagnant parmi des centaines de commentaires est chronophage et source d'erreurs.
+        </p>
+        <p>
+            L'objectif était donc de créer une application capable de :
+        </p>
+        <ul>
+            <li>Analyser le code source HTML des pages Instagram (likes, abonnés, commentaires)</li>
+            <li>Extraire et stocker les données dans une base de données SQL</li>
+            <li>Vérifier automatiquement que les participants respectent les 3 critères (like, follow, tags)</li>
+            <li>Sélectionner aléatoirement un gagnant parmi les participants éligibles</li>
+        </ul>
+
+        <h4>Technologies utilisées :</h4>
+        <ul>
+            <li><strong>Python 3</strong> - Langage principal pour l'analyse</li>
+            <li><strong>BeautifulSoup4</strong> - Parsing et analyse du HTML Instagram</li>
+            <li><strong>Playwright</strong> - Bibliothèque pour navigateur (dépendance)</li>
+            <li><strong>MySQL</strong> - Base de données pour stocker les participants</li>
+            <li><strong>mysql-connector-python</strong> - Connexion Python ↔ MySQL</li>
+        </ul>
+
+        <h4>Architecture de l'application :</h4>
+        <div class="code-block">
+AnalyseConcour/
+├── main.py                      # Sélection du gagnant final
+├── Analyse_Like/
+│   ├── analyse_like.py         # Extraction des likes
+│   └── page.html               # HTML de la page des likes
+├── Analyse_Subscribe/
+│   ├── analyse_Subscribe.py    # Extraction des abonnés
+│   └── page.html               # HTML de la page des abonnés
+├── Analyse_Mention/
+│   ├── analyse_mention.py      # Extraction des commentaires
+│   └── page.html               # HTML de la page des commentaires
+└── requirements.txt
+        </div>
+
+        <h4>Processus de fonctionnement :</h4>
+        <p><strong>Étape 1 - Récupération du HTML :</strong></p>
+        <p>
+            Le code source HTML de chaque page Instagram (liste des likes, liste des abonnés, commentaires de la publication)
+            est récupéré manuellement et sauvegardé dans un fichier <code>page.html</code> dans chaque dossier d'analyse.
+            Cette approche permet de contourner les limitations strictes de l'API Instagram et d'éviter les détections anti-bot.
+        </p>
+
+        <p><strong>Étape 2 - Analyse des Likes (analyse_like.py) :</strong></p>
+        <ul>
+            <li>Parse le HTML avec BeautifulSoup pour extraire tous les pseudos ayant liké le post</li>
+            <li>Recherche les balises <code>&lt;span class="_ap3a"&gt;</code> contenant les noms d'utilisateur</li>
+            <li>Injecte chaque pseudo dans la table SQL <strong>likepost</strong></li>
+            <li>Gère les doublons avec <code>ON DUPLICATE KEY UPDATE</code></li>
+        </ul>
+
+        <p><strong>Étape 3 - Analyse des Abonnés (analyse_Subscribe.py) :</strong></p>
+        <ul>
+            <li>Parse le HTML de la liste des abonnés du compte Olevia</li>
+            <li>Identifie les vrais abonnés en vérifiant la présence du bouton "Supprimer" dans chaque bloc utilisateur</li>
+            <li>Extrait les pseudos avec la classe CSS <code>_ap3a</code></li>
+            <li>Injecte dans la table SQL <strong>subscribe</strong></li>
+        </ul>
+
+        <p><strong>Étape 4 - Analyse des Mentions (analyse_mention.py) :</strong></p>
+        <ul>
+            <li>Parse les commentaires de la publication du concours</li>
+            <li>Pour chaque commentaire, extrait l'auteur et toutes les mentions (@username)</li>
+            <li>Applique des filtres de validation :
+                <ul>
+                    <li>Minimum 3 mentions différentes requises</li>
+                    <li>Exclut les mentions du compte hôte (@tacoblizt)</li>
+                    <li>Exclut l'auto-mention (l'auteur ne peut pas se taguer lui-même)</li>
+                </ul>
+            </li>
+            <li>Injecte dans la table SQL <strong>mention</strong> : auteur + 3 premières mentions</li>
+        </ul>
+
+        <p><strong>Étape 5 - Sélection du gagnant (main.py) :</strong></p>
+        <p>
+            Le script principal effectue une requête SQL qui croise les 3 tables pour trouver les participants éligibles :
+        </p>
+        <div class="code-block">
+SELECT pseudo, message_1, message_2, message_3
+FROM mention
+WHERE pseudo IN (SELECT pseudo FROM subscribe)
+  AND pseudo IN (SELECT pseudo FROM likepost)
+  AND pseudo IN (SELECT pseudo FROM mention)
+ORDER BY RAND()
+LIMIT 1;
+        </div>
+        <p>
+            Cette requête sélectionne aléatoirement 1 personne qui apparaît simultanément dans les 3 tables,
+            garantissant qu'elle a bien liké, suivi le compte, et commenté avec au moins 3 mentions valides.
+        </p>
+
+        <h4>Structure de la base de données :</h4>
+        <table>
+            <tr>
+                <th>Table</th>
+                <th>Colonnes principales</th>
+                <th>Rôle</th>
+            </tr>
+            <tr>
+                <td><strong>likepost</strong></td>
+                <td>pseudo, date_collecte</td>
+                <td>Liste des personnes ayant liké la publication</td>
+            </tr>
+            <tr>
+                <td><strong>subscribe</strong></td>
+                <td>pseudo, date_collecte</td>
+                <td>Liste des abonnés au compte Olevia</td>
+            </tr>
+            <tr>
+                <td><strong>mention</strong></td>
+                <td>pseudo, message_1, message_2, message_3, date_collecte</td>
+                <td>Commentaires valides avec ≥3 mentions</td>
+            </tr>
+        </table>
+
+        <h4>Défis techniques rencontrés :</h4>
+        <ul>
+            <li><strong>Structure HTML complexe d'Instagram :</strong> Instagram utilise des classes CSS générées
+                automatiquement (ex: <code>_ap3a</code>, <code>x9f619</code>) qui peuvent changer sans préavis.
+                Solution : ciblage précis des balises et tests réguliers de la robustesse du parsing.</li>
+            <li><strong>Détection des vrais abonnés :</strong> Différencier les abonnés actifs des comptes suspendus.
+                Solution : vérification de la présence du bouton "Supprimer" supprimable dans chaque bloc.</li>
+            <li><strong>Validation des mentions :</strong> Filtrer les commentaires invalides (mentions insuffisantes,
+                auto-tags, mentions du compte hôte). Solution : logique de filtrage multi-critères avec exclusions.</li>
+            <li><strong>Gestion des doublons SQL :</strong> Un utilisateur peut apparaître plusieurs fois dans les extractions.
+                Solution : utilisation de <code>INSERT IGNORE</code> et <code>ON DUPLICATE KEY UPDATE</code>.</li>
+        </ul>
+
+        <h3>3.2 Optimisation SEO et stratégie marketing</h3>
+        <p>
+            Suite au succès du premier stage, j'ai poursuivi l'optimisation du référencement et participé
+            au développement de la stratégie marketing d'Olevia.
+        </p>
+
+        <h4>Actions réalisées :</h4>
+        <ul>
+            <li><strong>Optimisation des fiches produits :</strong> descriptions uniques et balises riches pour améliorer le référencement</li>
+            <li><strong>Maillage interne stratégique :</strong> liens entre les pages pour faciliter la navigation et améliorer le SEO</li>
+            <li><strong>Netlinking :</strong>
+                <ul>
+                    <li>Partenariats avec des blogs beauté pour obtenir des backlinks de qualité</li>
+                    <li>Partages sur réseaux sociaux pour augmenter la visibilité</li>
+                </ul>
+            </li>
+            <li><strong>Programme ambassadeurs :</strong> mise en place d'un programme d'ambassadeurs de la marque pour promouvoir les produits Olevia</li>
+        </ul>
+
+        <h3>3.3 Amélioration du site web</h3>
+        <p>
+            Plusieurs améliorations ont été apportées au site pour améliorer l'expérience utilisateur
+            et faciliter les conversions.
+        </p>
+
+        <h4>Améliorations réalisées :</h4>
+        <ul>
+            <li>Refonte de la page d'accueil avec section hero plus impactante</li>
+            <li>Ajout d'un système d'avis clients (WooCommerce Reviews)</li>
+            <li>Mise en place d'emails automatiques (confirmation de commande, suivi de livraison)</li>
+        </ul>
+
+        <h3>3.4 Montée en compétences : IA, Java, Spring Boot</h3>
+        <p>
+            En parallèle des missions principales, j'ai profité de ce stage pour me former sur des technologies
+            plus avancées, en lien avec mes cours de 2ème année.
+        </p>
+
+        <h4>Intelligence Artificielle :</h4>
+        <ul>
+            <li>Formation sur les concepts de l'IA et du Machine Learning via OpenClassroom</li>
+            <li>Apprentissage des fondamentaux (supervised/unsupervised learning, réseaux de neurones, etc.)</li>
+            <li>Abonnement chez Anthropic pour expérimenter avec Claude sans limitations</li>
+            <li>Compréhension de l'utilisation d'une vraie IA avec toute sa puissance (versus versions gratuites limitées)</li>
+        </ul>
+
+        <h4>Java & Spring Boot :</h4>
+        <ul>
+            <li>Apprentissage des fondamentaux de Spring Boot (IoC, Dependency Injection)</li>
+            <li>Création d'une API REST simple pour gérer les produits</li>
+            <li>Compréhension de l'architecture en couches (Controller, Service, Repository)</li>
+            <li>Initiation à JPA/Hibernate pour l'ORM</li>
+            <li>Tests unitaires avec JUnit</li>
+        </ul>
+
+        <p>
+            L'objectif à terme est de migrer progressivement l'application de gestion de stock développée
+            en PHP vers une architecture Java/Spring Boot plus robuste et scalable.
+        </p>
+
+        <!-- Compétences développées -->
+        <h2>4. Compétences développées</h2>
+
+        <div class="competences-grid">
+            <div class="competence-item">
+                <strong>Parsing HTML & Python</strong><br>
+                BeautifulSoup, Playwright, extraction de données, manipulation SQL
+            </div>
+            <div class="competence-item">
+                <strong>Bases de données MySQL</strong><br>
+                Requêtes complexes, jointures, gestion des doublons
+            </div>
+            <div class="competence-item">
+                <strong>SEO & Marketing</strong><br>
+                Optimisation fiches produits, maillage interne, netlinking, ambassadeurs
+            </div>
+            <div class="competence-item">
+                <strong>Intelligence Artificielle</strong><br>
+                Concepts ML, formation OpenClassroom, utilisation Claude (Anthropic)
+            </div>
+            <div class="competence-item">
+                <strong>Java & Spring Boot</strong><br>
+                API REST, architecture MVC, JPA/Hibernate
+            </div>
+            <div class="competence-item">
+                <strong>WordPress & WooCommerce</strong><br>
+                Refonte pages, système d'avis, emails automatiques
+            </div>
+        </div>
+
+        <!-- Difficultés rencontrées -->
+        <h2>5. Difficultés rencontrées et solutions apportées</h2>
+
+        <h3>5.1 Compréhension de la structure HTML Instagram</h3>
+        <p>
+            <strong>Difficulté :</strong> Instagram utilise des classes CSS générées automatiquement et une structure
+            HTML complexe qui rend difficile l'extraction des données. Il fallait identifier les bonnes balises et
+            classes pour extraire les pseudos, les likes, les abonnés et les commentaires de manière fiable.
+        </p>
+        <p>
+            <strong>Solution :</strong> Analyse approfondie du HTML avec les outils de développement du navigateur,
+            tests répétés pour identifier les sélecteurs CSS les plus stables (<code>_ap3a</code>, <code>x9f619</code>),
+            et développement d'une logique de parsing robuste avec BeautifulSoup capable de gérer les variations.
+        </p>
+
+        <h3>5.2 Apprentissage de Java/Spring Boot</h3>
+        <p>
+            <strong>Difficulté :</strong> Transition de PHP (procédural/orienté objet simple) vers Java
+            avec Spring Boot (framework complexe, annotations, concepts avancés).
+        </p>
+        <p>
+            <strong>Solution :</strong> Formation progressive avec tutoriels (Spring.io, Baeldung),
+            création de petits projets d'apprentissage, lecture de la documentation officielle,
+            et assistance de la communauté (Stack Overflow).
+        </p>
+
+        <!-- Bilan -->
+        <h2>6. Bilan et perspectives</h2>
+
+        <h3>6.1 Bilan personnel</h3>
+        <p>
+            Ce second stage a été encore plus formateur que le premier. La complexité des missions
+            (scraping, IA, Spring Boot) m'a poussé à sortir de ma zone de confort et à développer
+            de nouvelles compétences essentielles pour ma future carrière de développeur.
+        </p>
+        <p>
+            Le fait de travailler sur des problématiques réelles avec des contraintes business m'a permis
+            de comprendre l'importance de la performance, de la scalabilité et de la maintenabilité du code.
+        </p>
+
+        <h3>6.2 Apports du stage</h3>
+        <ul>
+            <li>Maîtrise du parsing HTML avec Python et BeautifulSoup</li>
+            <li>Compétences en requêtes SQL complexes (jointures, croisement de tables)</li>
+            <li>Compréhension des stratégies SEO et marketing digital (netlinking, ambassadeurs)</li>
+            <li>Formation aux concepts de l'intelligence artificielle via OpenClassroom</li>
+            <li>Expérimentation avec Claude (Anthropic) pour comprendre le potentiel de l'IA</li>
+            <li>Initiation à Java et Spring Boot, technologies demandées en entreprise</li>
+        </ul>
+
+        <h3>6.3 Perspectives d'évolution</h3>
+        <p>
+            Suite à ce stage, plusieurs projets sont envisagés pour Olevia :
+        </p>
+        <ul>
+            <li>Migration complète vers une architecture Java/Spring Boot pour l'application de stock</li>
+            <li>Automatisation du processus de récupération HTML Instagram (via API ou automatisation navigateur)</li>
+            <li>Développement d'un système de recommandation de produits basé sur l'IA</li>
+            <li>Création d'un tableau de bord analytics pour suivre les performances marketing</li>
+            <li>Adaptation de l'application de concours pour d'autres plateformes (TikTok, Pinterest)</li>
+            <li>Intégration de l'IA pour l'analyse de sentiment des commentaires clients</li>
+        </ul>
+
+        <h3>6.4 Lien avec le référentiel BTS SIO SLAM</h3>
+        <p>
+            Ce stage m'a permis de valider plusieurs compétences du référentiel BTS SIO :
+        </p>
+        <ul>
+            <li><strong>A1.2.3 :</strong> Conception et réalisation de solutions logicielles</li>
+            <li><strong>A1.3.1 :</strong> Propositions d'améliorations d'une application existante</li>
+            <li><strong>A2.1.1 :</strong> Analyse des objectifs et des besoins de l'utilisateur</li>
+            <li><strong>A2.3.1 :</strong> Conception de bases de données</li>
+            <li><strong>A5.2.3 :</strong> Veille technologique et amélioration continue</li>
+        </ul>
+
+        <!-- Conclusion -->
+        <h2>7. Conclusion</h2>
+        <p>
+            Ce stage de 2ème année au sein d'Olevia a été une expérience déterminante dans mon parcours
+            de formation. Il a confirmé mon intérêt pour le développement logiciel et m'a ouvert de nouvelles
+            perspectives, notamment dans les domaines de l'automatisation, de l'intelligence artificielle
+            et des architectures modernes (Spring Boot).
+        </p>
+        <p>
+            La double casquette développeur/entrepreneur continue de s'avérer extrêmement enrichissante :
+            elle me permet d'avoir une vision complète des enjeux techniques ET business, et de mesurer
+            directement l'impact de mes développements sur l'activité de l'entreprise.
+        </p>
+        <p>
+            Je suis maintenant mieux préparé pour mon projet de fin d'études et pour mon insertion
+            professionnelle en tant que développeur d'applications.
+        </p>
+
+        <div class="signature">
+            <p>Le 13 février 2026</p>
+            <p><strong>Nolan JEAN</strong></p>
+        </div>
+    </div>
+</body>
+</html>

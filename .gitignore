@@ -1,0 +1,13 @@
+# Dépendances
+node_modules/
+
+# Fichiers de test
+screenshots/
+
+# Fichiers locaux Claude
+.claude/
+CLAUDE.md
+
+# OS
+.DS_Store
+Thumbs.db

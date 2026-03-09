@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Nolan Jean, développeur web en BTS SIO SLAM. Découvrez mes projets, compétences et parcours.">
+    <meta property="og:title" content="Nolan Jean | Développeur Web">
+    <meta property="og:description" content="Portfolio de Nolan Jean, développeur web en BTS SIO SLAM.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <title>Nolan JEAN | Développeur Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- Indicateur de progression de scroll -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- POPUP CONTACT -->
+    <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-label="Me contacter">
+        <div class="modal-content">
+            <span class="close-modal" role="button" aria-label="Fermer" tabindex="0">&times;</span>
+
+            <h2>Me contacter</h2>
+            <p>Disponible pour projets ou opportunités.</p>
+
+            <div class="contact-actions">
+                <button class="contact-btn" id="copyEmail">
+                    📧 nobodyplayeur@gmail.com
+                </button>
+
+                <p id="copyFeedback" class="copy-feedback">
+                    Adresse email copiée ✔
+                </p>
+
+                <a href="assets/cv2.pdf" target="_blank" class="contact-btn outline">
+                    📄 Télécharger mon CV
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NavBar -->
+    <nav>
+        <div class="logo">NOLAN JEAN</div>
+
+        <!-- Burger menu pour mobile -->
+        <div class="burger-wrapper" aria-label="Menu" role="button" tabindex="0">
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="burger-text">MENU</span>
+        </div>
+
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#career">Parcours</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#veille">Veille</a></li>
+        </ul>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+    </nav>
+
+    <main id="main-content">
+        <!-- Profil -->
+        <header>
+            <div class="hero-fade" style="--delay: 0">
+                <div class="hero-terminal">
+                    <div class="hero-terminal-bar">
+                        <div class="t-dot red"></div>
+                        <div class="t-dot yellow"></div>
+                        <div class="t-dot green"></div>
+                        <span class="hero-terminal-title">nolan@portfolio ~ </span>
+                    </div>
+                    <div class="hero-terminal-body" id="heroTermBody"></div>
+                </div>
+            </div>
+            <h1 class="hero-fade" style="--delay: 1">Nolan Jean<br><span class="typewriter" id="typewriter"></span><span class="cursor">|</span></h1>
+            <p class="hero-fade" style="--delay: 2">Étudiant en BTS SIO SLAM et entrepreneur. Je développe des applications web et pilote des projets business en parallèle de ma formation.</p>
+            <div class="header-buttons hero-fade" style="--delay: 3">
+                <a href="#projects" class="btn" id="scrollProjects">Découvrir mes projets</a>
+                <a href="#" class="btn outline" id="openContact">Me contacter</a>
+            </div>
+        </header>
+
+        <!-- A propos -->
+        <section id="about">
+            <h2>Profil</h2>
+            <div class="about-content">
+                <p>Actuellement en 2ème année de <strong>BTS SIO option SLAM</strong> au lycée Léonard de Vinci,
+                    je construis des applications web en PHP, Kotlin et Python. En parallèle, je développe deux activités :
+                    <strong>Olevia</strong>, une marque de cosmétiques dont je gère toute la partie numérique, et
+                    <strong>FormatNebu</strong>, un projet d'éducation financière. Ce double parcours dev + entrepreneuriat
+                    me pousse à aller au-delà du code.</p>
+            </div>
+
+            <!-- Formation BTS SIO -->
+            <div class="formation-section">
+            <h2>Ma Formation : BTS SIO</h2>
+            <p class="formation-intro">
+                Le <strong>BTS Services Informatiques aux Organisations</strong> est une formation de niveau Bac+2
+                qui forme des techniciens capables de gérer et développer des solutions informatiques au sein des organisations.
+            </p>
+
+            <div class="options-grid">
+                <!-- Option SISR -->
+                <div class="option-card">
+                    <div class="option-header">
+                        <i class="fas fa-server"></i>
+                        <h3>SISR</h3>
+                    </div>
+                    <h4>Solutions d'Infrastructure, Systèmes et Réseaux</h4>
+                    <p>Installation, administration et sécurisation des réseaux et équipements informatiques.</p>
+                    <ul>
+                        <li>Administration systèmes et réseaux</li>
+                        <li>Cybersécurité</li>
+                        <li>Support et assistance</li>
+                        <li>Virtualisation</li>
+                    </ul>
+                </div>
+
+                <!-- Option SLAM (choisie) -->
+                <div class="option-card selected">
+                    <div class="option-badge">Mon choix</div>
+                    <div class="option-header">
+                        <i class="fas fa-code"></i>
+                        <h3>SLAM</h3>
+                    </div>
+                    <h4>Solutions Logicielles et Applications Métiers</h4>
+                    <p>Conception, développement et maintenance d'applications orientées métiers.</p>
+                    <ul>
+                        <li>Développement d'applications</li>
+                        <li>Bases de données</li>
+                        <li>Programmation orientée objet</li>
+                        <li>Gestion de projets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="formation-why">
+                <h3><i class="fas fa-lightbulb"></i> Pourquoi SLAM ?</h3>
+                <p>J'ai choisi l'option SLAM car elle correspond parfaitement à ma passion pour la création logicielle
+                    et le développement d'applications. Cette spécialisation me permet d'allier créativité et logique,
+                    tout en développant des compétences techniques recherchées (PHP, Kotlin, Python, bases de données).
+                    De plus, mes projets entrepreneuriaux (Olevia, FormatNebu) me permettent d'appliquer directement
+                    ces compétences dans un contexte professionnel concret.</p>
+            </div>
+        </div>
+        </section>
+
+        <!-- Compteurs -->
+        <div class="counters" id="counters">
+            <div class="counter-item">
+                <span class="counter-number" data-target="5">0</span>
+                <span class="counter-label">Projets</span>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" data-target="9">0</span>
+                <span class="counter-label">Technologies</span>
+            </div>
+            <div class="counter-item">
+                <span class="counter-number" data-target="2">0</span>
+                <span class="counter-label">Activités entrepreneuriales</span>
+            </div>
+        </div>
+
+        <!-- Parcours -->
+        <section class="page-section" id="career">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Parcours Professionnel</h2>
+                    <h3 class="section-subheading text-muted">Et mes projets de vie</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/1.jpg" alt="Baccalauréat STMG" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2022 - 2024</h4>
+                                <h4 class="subheading">Baccalauréat STMG – Option SIG</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Bac technologique orienté vers la gestion, le management et les systèmes d'information.
+                                    Cette formation m'a permis d'acquérir des bases solides en organisation, en économie,
+                                    ainsi qu'une première approche concrète des outils numériques et des systèmes
+                                    d'information.<br>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/2.jpg" alt="Conseils en actifs numériques" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Juillet - 2024</h4>
+                                <h4 class="subheading">Conseils en actifs numériques</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Accompagnement de plusieurs associés et entrepreneurs dans la compréhension et la
+                                    gestion d'actifs numériques, avec une approche pédagogique adaptée à leurs besoins et à
+                                    leur niveau de connaissance.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/3.jpg" alt="BTS SIO 1ère année" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Septembre 2024</h4>
+                                <h4 class="subheading">1ère année BTS SIO</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Formation axée sur le développement d'applications et la gestion de projets
+                                    informatiques. Cette première année m'a permis de renforcer mes compétences en
+                                    programmation, en bases de données et en logique algorithmique.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/4.jpg" alt="Entrepreneuriat" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Janvier 2025</h4>
+                                <h4 class="subheading">Entrepreneuriat</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Lancement de Olevia, une marque de cosmétiques alliant qualité, accessibilité et
+                                    esthétisme. Je suis en charge de l'ensemble de la partie numérique (site web, présence
+                                    en ligne, automatisation), ainsi que des prévisions financières, des investissements et
+                                    de la stratégie globale de développement.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/4.jpg" alt="Stage BTS SIO 1ère année" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Mai - Juin 2025</h4>
+                                <h4 class="subheading">Stage BTS SIO 1ère année - Olevia</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Stage de 6 semaines au sein de mon entreprise Olevia. Missions principales : réalisation
+                                    du site web sur WordPress, optimisation SEO pour améliorer la visibilité en ligne, et
+                                    développement d'une mini-application de suivi de stock pour automatiser la gestion des
+                                    produits.<br>
+                                    <a href="assets/cr_stage1.html" target="_blank">📄 Consulter le compte rendu de stage</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/formatnebu.png" alt="FormatNebu" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Juin 2025</h4>
+                                <h4 class="subheading">FormatNebu</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Création d'une activité dédiée à la vulgarisation de l'investissement et à l'éducation
+                                    financière. Je conçois des formations accessibles à tous, gère la stratégie de contenu,
+                                    la partie technique (site web, automatisation) ainsi que le suivi et l'analyse des
+                                    performances.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/3.jpg" alt="BTS SIO 2ème année" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Septembre 2025</h4>
+                                <h4 class="subheading">2ème année BTS SIO – Option SLAM</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Deuxième année de mon cursus, axée sur des projets plus concrets et de plus grande
+                                    envergure. Cette formation me permet d'approfondir mes compétences en développement
+                                    logiciel, d'améliorer ma maîtrise des langages de programmation et des frameworks, et de
+                                    renforcer mon autonomie sur des projets professionnels.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-image">
+                            <img class="rounded-circle img-fluid" src="assets/parcours_logo/4.jpg" alt="Stage BTS SIO 2ème année" loading="lazy" />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Janvier - Février 2026</h4>
+                                <h4 class="subheading">Stage BTS SIO 2ème année - Olevia</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    Stage de 6 semaines au sein d'Olevia. Missions principales : développement d'une
+                                    mini-application de scraping pour organiser des jeux-concours Instagram et faire gagner
+                                    des lots de produits, optimisation SEO avancée, amélioration du site web, et montée en
+                                    compétences sur l'IA, Java et Spring Boot.<br>
+                                    <a href="assets/cr_stage2.html" target="_blank">📄 Consulter le compte rendu de stage</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projets Phares</h2>
+
+            <div class="projects-grid">
+
+                <!-- Projet 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project_logo/geoworld.png" alt="GeoWorld" loading="lazy">
+
+                        <div class="project-overlay">
+                            <a href="https://github.com/nolanjean/world2025" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>SQL</span>
+                        </div>
+                        <h3>GeoWorld</h3>
+                        <p>Outil de gestion et visualisation de données géographiques avec filtres dynamiques.</p>
+                    </div>
+                </div>
+
+
+                <!-- Projet 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project_logo/batailleNaval.png" alt="Bataille Navale" loading="lazy">
+
+                        <div class="project-overlay">
+                            <a href="https://github.com/nolanjean/Bataille-Navale" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span>Kotlin</span>
+                        </div>
+                        <h3>Bataille Navale</h3>
+                        <p>Mini-jeu développé en Kotlin et jouable sur le terminal.</p>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project_logo/TopDownShooter.png" alt="TopDownShooter" loading="lazy">
+
+                        <div class="project-overlay">
+                            <a href="https://drive.google.com/file/d/1D_Gsl36rmBqbtYQ_S4rzkVypg-JbFsIf/view?usp=sharing"
+                                target="_blank" class="project-btn outline">
+                                <i class="fas fa-eye"></i> Voir le projet
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span>Unreal Engine</span>
+                            <span>Blueprints</span>
+                        </div>
+                        <h3>TopDownShooter</h3>
+                        <p>Mini-jeu réalisé sous Unreal Engine 5 dans le but de découvrir le moteur.</p>
+                    </div>
+                </div>
+                <!-- Projet 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project_logo/arkania.png" alt="KotlinMonster / Arkania" loading="lazy">
+
+                        <div class="project-overlay">
+                            <a href="https://github.com/nolanjean/KotlinMonsterSprint3" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> V1 GitHub
+                            </a>
+                            <a href="https://github.com/nolanjean/ArkaniaFinal" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> V2 GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span>Kotlin</span>
+                            <span>SpringBoot</span>
+                            <span>MariaDB</span>
+                            <span>HTML / CSS</span>
+                        </div>
+                        <h3>KotlinMonster / Arkania</h3>
+                        <p>Mini-jeu inspiré de Pokémon, développé en version terminal et en version web (non finalisée),
+                            dans le cadre d'un projet de classe.</p>
+                    </div>
+                </div>
+
+                <!-- Projet 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project_logo/sushi_app.png" alt="Sushi App" loading="lazy">
+
+                        <div class="project-overlay">
+                            <a href="https://github.com/nolanjean/sushi_app" target="_blank" class="project-btn">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span>Kotlin</span>
+                        </div>
+                        <h3>Sushi App</h3>
+                        <p>Application mobile de commande de sushis développée en Kotlin.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="skills">
+            <h2>Domaines de compétences</h2>
+
+            <div class="skills-categories">
+
+                <!-- DEV -->
+                <div class="skill-category">
+                    <i class="fas fa-code"></i>
+                    <h3>Développement</h3>
+                    <p>Création d'applications web et logicielles, orientées performance et maintenabilité.</p>
+
+                    <div class="skill-logos">
+                        <img src="assets/skill_logo/html.svg" alt="HTML" title="HTML" loading="lazy">
+                        <img src="assets/skill_logo/css.svg" alt="CSS" title="CSS" loading="lazy">
+                        <img src="assets/skill_logo/php.svg" alt="PHP" title="PHP" loading="lazy">
+                        <img src="assets/skill_logo/mysql.svg" alt="SQL" title="SQL" loading="lazy">
+                        <img src="assets/skill_logo/python.svg" alt="Python" title="Python" loading="lazy">
+                        <img src="assets/skill_logo/kotlin.svg" alt="Kotlin" title="Kotlin" loading="lazy">
+                        <img src="assets/skill_logo/java.svg" alt="Java" title="Java" loading="lazy">
+                        <img src="assets/skill_logo/springboot.svg" alt="Spring Boot" title="Spring Boot" loading="lazy">
+                        <img src="assets/skill_logo/github.svg" alt="GitHub" title="GitHub" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- ENVIRONNEMENT JEU -->
+                <div class="skill-category">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Environnements 3D & Jeux</h3>
+                    <p>Conception d'environnements interactifs et logiques de jeu.</p>
+
+                    <div class="skill-tags">
+                        <span>Unreal Engine</span>
+                        <span>Blueprints</span>
+                        <span>Logique 3D</span>
+                        <span>Level Design</span>
+                    </div>
+                </div>
+
+                <!-- ECONOMIE -->
+                <div class="skill-category">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Économie & Stratégie</h3>
+                    <p>Analyse et prise de décision orientée croissance et performance.</p>
+
+                    <div class="skill-tags">
+                        <span>Analyse technique</span>
+                        <span>Analyse fondamentale</span>
+                        <span>Structure de marché</span>
+                        <span>Stratégie business</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Veille Technologique -->
+        <section id="veille">
+            <h2>Veille Technologique</h2>
+            <p class="veille-intro">Je maintiens une veille active pour rester à jour sur les évolutions du développement web et des technologies numériques.</p>
+
+            <div class="veille-grid">
+                <div class="veille-card">
+                    <i class="fas fa-rss"></i>
+                    <h3>Sources & Médias</h3>
+                    <ul>
+                        <li>Stack Overflow & GitHub Trending</li>
+                        <li>Dev.to & Medium (tech)</li>
+                        <li>Chaînes YouTube spécialisées</li>
+                        <li>Documentation officielle (MDN, W3Schools)</li>
+                    </ul>
+                </div>
+
+                <div class="veille-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Outils de veille</h3>
+                    <ul>
+                        <li>Feedly — agrégateur de flux RSS</li>
+                        <li>GitHub — suivi de repos & releases</li>
+                        <li>LinkedIn — réseau professionnel tech</li>
+                        <li>Reddit (r/webdev, r/programming)</li>
+                    </ul>
+                </div>
+
+                <div class="veille-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Sujets suivis</h3>
+                    <ul>
+                        <li>Frameworks web (Spring Boot, React)</li>
+                        <li>Intelligence artificielle & IA générative</li>
+                        <li>Cybersécurité & bonnes pratiques</li>
+                        <li>Méthodologies agiles (Scrum, DevOps)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <footer>
+        <p class="footer-copy">NOLAN JEAN &copy; 2026</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/nolan-jean-1253b5379" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/nolanjean" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:nobodyplayeur@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="assets/moncv.pdf" target="_blank" title="Télécharger mon CV" aria-label="Télécharger mon CV">
+                <i class="fas fa-file-pdf"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

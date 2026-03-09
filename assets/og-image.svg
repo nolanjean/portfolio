@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <circle cx="600" cy="200" r="80" fill="none" stroke="#38bdf8" stroke-width="4"/>
+  <text x="600" y="215" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="48" fill="#38bdf8" text-anchor="middle">NJ</text>
+  <text x="600" y="340" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="56" fill="#f1f5f9" text-anchor="middle">Nolan Jean</text>
+  <text x="600" y="400" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="32" fill="#38bdf8" text-anchor="middle">Développeur Web &amp; Entrepreneur</text>
+  <text x="600" y="470" font-family="Inter, Arial, sans-serif" font-weight="400" font-size="24" fill="#94a3b8" text-anchor="middle">BTS SIO SLAM | Portfolio</text>
+</svg>
