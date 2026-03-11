@@ -522,40 +522,249 @@
         <!-- Veille Technologique -->
         <section id="veille">
             <h2>Veille Technologique</h2>
-            <p class="veille-intro">Je maintiens une veille active pour rester à jour sur les évolutions du développement web et des technologies numériques.</p>
+            <p class="veille-intro">Dans le cadre de mon BTS SIO, j'ai réalisé une veille approfondie sur les solutions Layer 2 — une technologie clé pour la scalabilité d'Ethereum et l'avenir des applications décentralisées.</p>
 
-            <div class="veille-grid">
-                <div class="veille-card">
-                    <i class="fas fa-rss"></i>
-                    <h3>Sources & Médias</h3>
-                    <ul>
-                        <li>Stack Overflow & GitHub Trending</li>
-                        <li>Dev.to & Medium (tech)</li>
-                        <li>Chaînes YouTube spécialisées</li>
-                        <li>Documentation officielle (MDN, W3Schools)</li>
-                    </ul>
+            <!-- Topic banner -->
+            <div class="veille-topic-banner">
+                <div class="veille-topic-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="veille-topic-text">
+                    <h3>Les solutions Layer 2 — Scalabilité et avenir d'Ethereum</h3>
+                    <p>Mars 2026 · BTS SIO SLAM · Portfolio professionnel</p>
+                </div>
+            </div>
+
+            <!-- Définition de la veille technologique -->
+            <div class="veille-block veille-definition">
+                <div class="veille-block-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Qu'est-ce que la veille technologique ?</h3>
+                </div>
+                <p>La veille technologique, qui fait partie intégrante de la <strong>veille stratégique</strong>, consiste à surveiller les avancées techniques et les innovations dans un domaine spécifique d'activité. Elle englobe la surveillance, la collecte, le partage et la diffusion d'informations visant à <strong>anticiper ou à se renseigner</strong> sur les évolutions en matière de recherche, de développement, de brevets, de lancements de nouveaux produits, de matériaux, de processus, de concepts et d'innovations de fabrication. Son objectif est d'évaluer l'impact de ces évolutions sur l'environnement et l'organisation concernée.</p>
+                <div class="veille-definition-grid">
+                    <div class="veille-def-item">
+                        <i class="fas fa-search"></i>
+                        <div>
+                            <strong>Surveiller & Collecter</strong>
+                            <p>Suivre les matières premières, produits, procédés, brevets et l'état de l'art scientifique et technique.</p>
+                        </div>
+                    </div>
+                    <div class="veille-def-item">
+                        <i class="fas fa-share-alt"></i>
+                        <div>
+                            <strong>Partager & Diffuser</strong>
+                            <p>Permettre aux bureaux d'études d'être informés des baisses de coût ou d'augmentation de qualité possibles.</p>
+                        </div>
+                    </div>
+                    <div class="veille-def-item">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <strong>Anticiper & Décider</strong>
+                            <p>Mieux connaître ses limites de production, sa concurrence future et les évolutions de son environnement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro : pourquoi le Layer 2 -->
+            <div class="veille-block">
+                <div class="veille-block-header">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Pourquoi le Layer 2 ?</h3>
+                </div>
+                <p>Depuis son lancement en 2015, Ethereum est la blockchain de référence pour les DApps et la DeFi. Sa croissance a mis en évidence une limitation majeure formalisée par Vitalik Buterin : le <strong>trilemme de la blockchain</strong> — il est extrêmement difficile d'atteindre simultanément décentralisation, sécurité et scalabilité.</p>
+                <div class="veille-trilemma">
+                    <div class="trilemma-item">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Décentralisation</span>
+                    </div>
+                    <div class="trilemma-item trilemma-vs"><i class="fas fa-plus"></i></div>
+                    <div class="trilemma-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Sécurité</span>
+                    </div>
+                    <div class="trilemma-item trilemma-vs"><i class="fas fa-plus"></i></div>
+                    <div class="trilemma-item trilemma-highlight">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Scalabilité</span>
+                    </div>
+                </div>
+                <p>Le réseau principal Ethereum (Layer 1) ne traite que <strong>15 à 30 TPS</strong>, contre 1 700 TPS pour Visa. Cela engendre des frais de gas élevés (jusqu'à plusieurs dizaines de dollars) et des délais de confirmation. Les solutions Layer 2 traitent les transactions <em>hors chaîne</em> tout en héritant de la sécurité du L1.</p>
+            </div>
+
+            <!-- Fonctionnement technique : 2 colonnes -->
+            <div class="veille-rollups">
+                <div class="veille-rollup-card">
+                    <div class="rollup-badge optimistic">Optimistic</div>
+                    <h3><i class="fas fa-thumbs-up"></i> Optimistic Rollups</h3>
+                    <p class="rollup-examples">Arbitrum · Optimism</p>
+                    <p>Regroupent des centaines de transactions en un seul lot soumis à Ethereum. Les transactions sont <strong>considérées valides par défaut</strong>.</p>
+                    <ol class="rollup-steps">
+                        <li>Un <em>sequencer</em> regroupe et exécute les transactions off-chain</li>
+                        <li>Il publie un <em>state root</em> cryptographique sur Ethereum</li>
+                        <li>Fenêtre de <strong>7 jours</strong> pour soumettre une fraud proof</li>
+                        <li>Sans contestation → transactions définitivement acceptées</li>
+                    </ol>
+                    <div class="rollup-pros-cons">
+                        <span class="tag-pro"><i class="fas fa-check"></i> Compatibilité EVM native</span>
+                        <span class="tag-con"><i class="fas fa-times"></i> Retrait L1 : 7 jours</span>
+                    </div>
                 </div>
 
-                <div class="veille-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Outils de veille</h3>
-                    <ul>
-                        <li>Feedly — agrégateur de flux RSS</li>
-                        <li>GitHub — suivi de repos & releases</li>
-                        <li>LinkedIn — réseau professionnel tech</li>
-                        <li>Reddit (r/webdev, r/programming)</li>
-                    </ul>
+                <div class="veille-rollup-card rollup-zk">
+                    <div class="rollup-badge zk">ZK Rollup</div>
+                    <h3><i class="fas fa-lock"></i> ZK Rollups</h3>
+                    <p class="rollup-examples">zkSync Era · Starknet · Polygon zkEVM</p>
+                    <p>Utilisent les <strong>Zero-Knowledge Proofs</strong> — une preuve mathématique garantit l'exactitude des transactions sans révéler leur contenu.</p>
+                    <ol class="rollup-steps">
+                        <li>Transactions exécutées et agrégées off-chain</li>
+                        <li>Un circuit génère une <em>validity proof</em> (SNARK ou STARK)</li>
+                        <li>La preuve est vérifiée par un smart contract sur Ethereum</li>
+                        <li>Retrait vers L1 <strong>quasi-instantané</strong></li>
+                    </ol>
+                    <div class="rollup-pros-cons">
+                        <span class="tag-pro"><i class="fas fa-check"></i> Finalité rapide</span>
+                        <span class="tag-con"><i class="fas fa-times"></i> Génération de preuves coûteuse</span>
+                    </div>
                 </div>
+            </div>
 
-                <div class="veille-card">
-                    <i class="fas fa-search"></i>
-                    <h3>Sujets suivis</h3>
-                    <ul>
-                        <li>Frameworks web (Spring Boot, React)</li>
-                        <li>Intelligence artificielle & IA générative</li>
-                        <li>Cybersécurité & bonnes pratiques</li>
-                        <li>Méthodologies agiles (Scrum, DevOps)</li>
-                    </ul>
+            <!-- Tableau comparatif -->
+            <div class="veille-block">
+                <div class="veille-block-header">
+                    <i class="fas fa-table"></i>
+                    <h3>Comparatif des principales solutions L2</h3>
+                </div>
+                <div class="veille-table-wrapper">
+                    <table class="veille-table">
+                        <thead>
+                            <tr>
+                                <th>Solution</th>
+                                <th>Type</th>
+                                <th>TPS max</th>
+                                <th>Frais moyens</th>
+                                <th>Sécurité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row-highlight">
+                                <td><strong>Arbitrum One</strong></td>
+                                <td><span class="badge-optimistic">Optimistic</span></td>
+                                <td>~40 000</td>
+                                <td>~0.01$</td>
+                                <td><span class="stars">★★★★☆</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Optimism</strong></td>
+                                <td><span class="badge-optimistic">Optimistic</span></td>
+                                <td>~2 000</td>
+                                <td>~0.002$</td>
+                                <td><span class="stars">★★★★☆</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>zkSync Era</strong></td>
+                                <td><span class="badge-zk">ZK Rollup</span></td>
+                                <td>~100 000</td>
+                                <td>~0.001$</td>
+                                <td><span class="stars">★★★★★</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Polygon zkEVM</strong></td>
+                                <td><span class="badge-zk">ZK Rollup</span></td>
+                                <td>~2 000</td>
+                                <td>~0.01$</td>
+                                <td><span class="stars">★★★★★</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Starknet</strong></td>
+                                <td><span class="badge-zk">ZK Rollup</span></td>
+                                <td>~100 000</td>
+                                <td>~0.0005$</td>
+                                <td><span class="stars">★★★★★</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="veille-table-note">Source : L2Beat.com — données agrégées Mars 2026. TPS indiqués = capacités théoriques maximales.</p>
+            </div>
+
+            <!-- Perspectives pour les développeurs -->
+            <div class="veille-block">
+                <div class="veille-block-header">
+                    <i class="fas fa-code"></i>
+                    <h3>Enjeux pour les développeurs</h3>
+                </div>
+                <div class="veille-dev-grid">
+                    <div class="veille-dev-item">
+                        <i class="fas fa-cubes"></i>
+                        <h4>Impact sur les DApps</h4>
+                        <p>Les micro-transactions (gaming, NFT) deviennent viables. De nouveaux outils émergent : Foundry, Hardhat avec plugins L2, Viem/Wagmi pour le frontend.</p>
+                    </div>
+                    <div class="veille-dev-item">
+                        <i class="fas fa-user-shield"></i>
+                        <h4>Zero-Knowledge Proofs</h4>
+                        <p>Les zk-proofs dépassent la blockchain : identité numérique, confidentialité des données. Des langages spécialisés comme Cairo (Starknet) ou Noir permettent d'écrire des circuits zk.</p>
+                    </div>
+                    <div class="veille-dev-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>Interopérabilité</h4>
+                        <p>La multiplication des L2 fragmente la liquidité. Le Superchain d'Optimism (OP Stack) et EIP-7683 visent un écosystème L2 unifié sans friction pour l'utilisateur.</p>
+                    </div>
+                </div>
+                <div class="veille-takeaway">
+                    <i class="fas fa-lightbulb"></i>
+                    <p><strong>À retenir :</strong> Maîtriser les outils L2 (Hardhat, Foundry, Viem), comprendre les différences Optimistic vs ZK Rollups, et se former aux zk-proofs sont des compétences de plus en plus demandées dans le secteur Web3.</p>
+                </div>
+            </div>
+
+            <!-- Sources -->
+            <div class="veille-block">
+                <div class="veille-block-header">
+                    <i class="fas fa-bookmark"></i>
+                    <h3>Sources utilisées</h3>
+                </div>
+                <div class="veille-sources-grid">
+                    <div class="veille-source-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>
+                            <strong>L2Beat.com</strong>
+                            <p>Tableau de bord des Layer 2 Ethereum (données en temps réel)</p>
+                        </div>
+                    </div>
+                    <div class="veille-source-item">
+                        <i class="fab fa-ethereum"></i>
+                        <div>
+                            <strong>ethereum.org/fr/layer-2</strong>
+                            <p>Documentation officielle Ethereum sur le Layer 2</p>
+                        </div>
+                    </div>
+                    <div class="veille-source-item">
+                        <i class="fas fa-pen-nib"></i>
+                        <div>
+                            <strong>Vitalik Buterin</strong>
+                            <p>« An Incomplete Guide to Rollups » — vitalik.eth.limo, 2021</p>
+                        </div>
+                    </div>
+                    <div class="veille-source-item">
+                        <i class="fas fa-file-code"></i>
+                        <div>
+                            <strong>Matter Labs</strong>
+                            <p>Documentation technique zkSync Era — docs.zksync.io</p>
+                        </div>
+                    </div>
+                    <div class="veille-source-item">
+                        <i class="fas fa-file-code"></i>
+                        <div>
+                            <strong>Offchain Labs</strong>
+                            <p>Documentation Arbitrum — docs.arbitrum.io</p>
+                        </div>
+                    </div>
+                    <div class="veille-source-item">
+                        <i class="fas fa-podcast"></i>
+                        <div>
+                            <strong>Bankless</strong>
+                            <p>Podcast et articles sur l'écosystème Ethereum et L2</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -572,7 +781,7 @@
             <a href="https://linkedin.com/in/nolan-jean-1253b5379" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/nolanjean" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="mailto:nobodyplayeur@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            <a href="assets/moncv.pdf" target="_blank" title="Télécharger mon CV" aria-label="Télécharger mon CV">
+            <a href="assets/cv2.pdf" target="_blank" title="Télécharger mon CV" aria-label="Télécharger mon CV">
                 <i class="fas fa-file-pdf"></i>
             </a>
         </div>

@@ -289,7 +289,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const navMenu = document.querySelector("nav ul");
 
   burgerWrapper.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
+    const isOpen = navMenu.classList.toggle("show");
+    burgerWrapper.setAttribute("aria-expanded", isOpen);
   });
 
   navMenu.querySelectorAll("a").forEach(link => {
@@ -302,27 +303,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== Back to top button =====
   const backToTop = document.getElementById("backToTop");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      backToTop.classList.add("show");
-    } else {
-      backToTop.classList.remove("show");
-    }
-  });
-
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
 
-  // ===== Scroll progress indicator =====
+  // ===== Scroll progress indicator + Back to top =====
   const scrollProgress = document.getElementById("scrollProgress");
 
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    scrollProgress.style.width = `${scrollPercent}%`;
+    scrollProgress.style.width = `${(scrollTop / docHeight) * 100}%`;
+    backToTop.classList.toggle("show", scrollTop > 400);
   });
 
 

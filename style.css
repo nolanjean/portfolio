@@ -501,8 +501,8 @@ h2 {
 .term-line.visible { opacity: 1; transform: translateY(0); }
 
 .term-prompt { color: var(--primary); white-space: nowrap; }
-.term-cmd    { color: var(--text); }
-.term-out    { color: var(--text-muted); padding-left: 20px; width: 100%; }
+.term-cmd    { color: #e2e8f0; }
+.term-out    { color: #94a3b8; padding-left: 20px; width: 100%; }
 .term-accent { color: var(--accent); }
 .term-green  { color: #4ade80; }
 
@@ -813,50 +813,516 @@ h2 {
     font-size: 1.05rem;
 }
 
-.veille-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+/* Topic banner */
+.veille-topic-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(139,92,246,0.12));
+    border: 1px solid rgba(56,189,248,0.3);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
 }
 
-.veille-card {
+.veille-topic-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.veille-topic-icon i {
+    font-size: 1.6rem;
+    color: white;
+}
+
+.veille-topic-text h3 {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.veille-topic-text p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+/* Blocks */
+.veille-block {
     background: var(--card-bg);
-    padding: 2rem;
     border-radius: 16px;
     border: 1px solid var(--border-subtle);
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.veille-block p {
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-top: 1rem;
+}
+
+.veille-block-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.veille-block-header i {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.veille-block-header h3 {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin: 0;
+}
+
+/* Definition block */
+.veille-definition {
+    border-color: rgba(139,92,246,0.3);
+    background: linear-gradient(135deg, var(--card-bg), rgba(139,92,246,0.05));
+}
+
+.veille-definition-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.veille-def-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 1.1rem;
+    border: 1px solid var(--border-subtle);
+}
+
+.veille-def-item > i {
+    font-size: 1.2rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.veille-def-item strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+}
+
+.veille-def-item p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-top: 0 !important;
+}
+
+/* Trilemme */
+.veille-trilemma {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.trilemma-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    min-width: 120px;
+    text-align: center;
+}
+
+.trilemma-item i {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+.trilemma-item span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.trilemma-highlight {
+    border-color: var(--primary) !important;
+    background: rgba(56,189,248,0.08) !important;
+}
+
+.trilemma-highlight i,
+.trilemma-highlight span {
+    color: var(--primary) !important;
+}
+
+.trilemma-vs {
+    background: none;
+    border: none;
+    padding: 0;
+    min-width: auto;
+}
+
+.trilemma-vs i {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Rollup cards */
+.veille-rollups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.veille-rollup-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    padding: 2rem;
+    position: relative;
     transition: 0.4s;
 }
 
-.veille-card:hover {
-    transform: translateY(-6px);
+.veille-rollup-card:hover {
+    transform: translateY(-5px);
+}
+
+.veille-rollup-card:first-child:hover { border-color: #f59e0b; }
+.rollup-zk:hover { border-color: var(--primary); }
+
+.veille-rollup-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.veille-rollup-card h3 i {
+    color: var(--primary);
+}
+
+.rollup-examples {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.veille-rollup-card > p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.rollup-steps {
+    padding-left: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.rollup-steps li {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+}
+
+.rollup-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.rollup-badge.optimistic {
+    background: rgba(245,158,11,0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245,158,11,0.4);
+}
+
+.rollup-badge.zk {
+    background: rgba(56,189,248,0.15);
+    color: var(--primary);
+    border: 1px solid rgba(56,189,248,0.4);
+}
+
+.rollup-pros-cons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-pro, .tag-con {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.tag-pro {
+    background: rgba(74,222,128,0.12);
+    color: #4ade80;
+    border: 1px solid rgba(74,222,128,0.3);
+}
+
+.tag-con {
+    background: rgba(248,113,113,0.12);
+    color: #f87171;
+    border: 1px solid rgba(248,113,113,0.3);
+}
+
+/* Table */
+.veille-table-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.veille-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.veille-table th {
+    background: rgba(56,189,248,0.1);
+    color: var(--primary);
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 2px solid rgba(56,189,248,0.3);
+}
+
+.veille-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+}
+
+.veille-table .row-highlight td {
+    background: rgba(56,189,248,0.04);
+}
+
+.veille-table td strong {
+    color: var(--text);
+}
+
+.badge-optimistic {
+    background: rgba(245,158,11,0.15);
+    color: #f59e0b;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-zk {
+    background: rgba(56,189,248,0.15);
+    color: var(--primary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.stars { color: #f59e0b; letter-spacing: 1px; }
+
+.veille-table-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem !important;
+    font-style: italic;
+}
+
+/* Dev grid */
+.veille-dev-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.veille-dev-item {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-subtle);
+}
+
+.veille-dev-item i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.veille-dev-item h4 {
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+}
+
+.veille-dev-item p {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-top: 0 !important;
+}
+
+.veille-takeaway {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: linear-gradient(135deg, rgba(56,189,248,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(56,189,248,0.25);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.veille-takeaway i {
+    font-size: 1.3rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.veille-takeaway p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-top: 0 !important;
+}
+
+/* Sources */
+.veille-sources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.veille-source-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--border-subtle);
+    transition: 0.3s;
+}
+
+.veille-source-item:hover {
     border-color: var(--primary);
 }
 
-.veille-card i {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.veille-card h3 {
+.veille-source-item > i {
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
 }
 
-.veille-card ul {
-    list-style: none;
-    padding: 0;
+.veille-source-item strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
 }
 
-.veille-card ul li {
+.veille-source-item p {
+    font-size: 0.78rem;
     color: var(--text-muted);
-    padding: 0.4rem 0;
-    font-size: 0.92rem;
-    border-bottom: 1px solid var(--border-subtle);
+    line-height: 1.4;
+    margin: 0;
 }
 
-.veille-card ul li:last-child {
-    border-bottom: none;
+/* Responsive veille */
+@media (max-width: 900px) {
+    .veille-definition-grid,
+    .veille-rollups,
+    .veille-dev-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .veille-sources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .veille-topic-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .veille-block {
+        padding: 1.5rem;
+    }
+
+    .veille-trilemma {
+        gap: 0.5rem;
+    }
+
+    .trilemma-item {
+        min-width: 90px;
+        padding: 0.8rem 1rem;
+    }
+
+    .veille-sources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .veille-block {
+        padding: 1.2rem;
+    }
+
+    .veille-topic-banner {
+        padding: 1.2rem;
+    }
+
+    .veille-table th,
+    .veille-table td {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .rollup-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 0.8rem;
+    }
 }
 
 /* ===== Back to top ===== */
@@ -932,7 +1398,7 @@ footer {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
-    z-index: 2000;
+    z-index: 2500;
 }
 
 .modal.show {
