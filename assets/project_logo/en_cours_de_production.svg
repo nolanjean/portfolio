@@ -1,0 +1,21 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#171b30"/>
+      <stop offset="100%" stop-color="#2a2350"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c5cff"/>
+      <stop offset="100%" stop-color="#40e0d0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="46" text-anchor="middle">🚧</text>
+
+  <text x="400" y="270" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#f2f3fa" text-anchor="middle" letter-spacing="1">EN COURS</text>
+  <text x="400" y="325" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#f2f3fa" text-anchor="middle" letter-spacing="1">DE PRODUCTION</text>
+
+  <rect x="300" y="350" width="200" height="6" rx="3" fill="url(#accent)"/>
+</svg>
